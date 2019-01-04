@@ -30,6 +30,7 @@ public class NavAgent : MonoBehaviour
             }
             else if (Vector2.Distance(transform.position, target) > float.Epsilon)
             {
+                transform.right = target - (Vector2)transform.position;
                 transform.position = Vector2.MoveTowards(transform.position, target, maxDistanceDelta);
             }
             else
