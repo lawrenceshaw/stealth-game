@@ -10,13 +10,13 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementVelocity;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Vector2 movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movementVelocity = movementDirection.normalized * Speed;
@@ -25,5 +25,11 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movementVelocity * Time.fixedDeltaTime);
+    }
+
+    public void Die()
+    {
+        Debug.Log("You dead!!");
+        Destroy(gameObject);
     }
 }
