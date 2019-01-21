@@ -6,19 +6,19 @@ public class PlayerController : MonoBehaviour
 {
     public float Speed;
 
-    private Rigidbody2D rb;
-    private Vector2 movementVelocity;
+    private Rigidbody rb;
+    private Vector3 movementVelocity;
 
     // Start is called before the first frame update
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        Vector2 movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector3 movementDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         movementVelocity = movementDirection.normalized * Speed;
     }
 
